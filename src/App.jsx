@@ -6,6 +6,7 @@ import {
 import { BaseLayout } from './features/shared/pages/layouts/base-layout'
 import { HomePage } from './features/shared/pages/HomePage/home-page'
 import { LoginPage } from './features/auth/pages/LoginPage/login-page'
+import { AdminPage } from './features/shared/pages/AdminPage/admin-page'
 
 function App() {
 
@@ -31,9 +32,7 @@ function App() {
             <Route
               path="/admin"
               element={
-                <BaseLayout>
-                  <HomePage />
-                </BaseLayout>
+                <AdminPage />
               }
             />
       </Routes>
