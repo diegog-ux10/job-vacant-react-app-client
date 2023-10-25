@@ -3,19 +3,15 @@ import {
   Route,
   Routes,
 } from 'react-router-dom'
-import {Link } from 'react-router-dom';
 import { BaseLayout } from './features/shared/pages/layouts/base-layout'
 import { HomePage } from './features/shared/pages/HomePage/home-page'
 import { LoginPage } from './features/auth/pages/LoginPage/login-page'
-import { useSelector } from 'react-redux'
 
 function App() {
-  const { isAuthenticated } = useSelector((state) => state.user)
+
   return (
     <Router>
       <Routes>
-        {!isAuthenticated ? (
-          <>
             <Route
               path="/"
               element={
@@ -32,17 +28,6 @@ function App() {
                 </BaseLayout>
               }
             />
-          </>
-        ) : (
-          <>
-            <Route
-              path="/"
-              element={
-                <BaseLayout>
-                  <HomePage />
-                </BaseLayout>
-              }
-            />
             <Route
               path="/admin"
               element={
@@ -51,9 +36,6 @@ function App() {
                 </BaseLayout>
               }
             />
-            <Route path="/login" render={<Link to="/" />} />
-          </>
-        )}
       </Routes>
     </Router>
   )
