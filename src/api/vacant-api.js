@@ -7,6 +7,7 @@ export const vacantApi = {
       params: {},
     });
   },
+  
   auth: (formData) => {
     return instance.post("/login", formData)
   }

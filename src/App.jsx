@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+} from 'react-router-dom'
+import {Link } from 'react-router-dom';
 import { BaseLayout } from './features/shared/pages/layouts/base-layout'
 import { HomePage } from './features/shared/pages/HomePage/home-page'
 import { LoginPage } from './features/auth/pages/LoginPage/login-page'
@@ -46,6 +51,7 @@ function App() {
                 </BaseLayout>
               }
             />
+            <Route path="/login" render={<Link to="/" />} />
           </>
         )}
       </Routes>
