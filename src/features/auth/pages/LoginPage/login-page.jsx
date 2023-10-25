@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { vacantApi } from '../../../../api/vacant-api'
 import { useDispatch } from 'react-redux';
 import { authenticate, setUser } from '../../../../redux/slices/user-slice';
+import { useNavigate } from "react-router-dom";
 
 export const LoginPage = ({}) => {
   const [formData, setFormData] = useState({
@@ -13,6 +14,7 @@ export const LoginPage = ({}) => {
   })
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -24,6 +26,7 @@ export const LoginPage = ({}) => {
       const response = await vacantApi.auth(formData)
       dispatch(setUser(response.data.user))
       dispatch(authenticate())
+      navigate("/");
     } catch (error) {
       console.error('Error sending data:', error)
     }
