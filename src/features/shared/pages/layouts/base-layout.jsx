@@ -1,5 +1,6 @@
 import logo from "./../../../../assets/logo.png";
 
+// eslint-disable-next-line react/prop-types
 export const BaseLayout = ({ children }) => {
   return (
     <div className="w-screen bg-gray-100">
