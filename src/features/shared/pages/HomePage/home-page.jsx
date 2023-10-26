@@ -1,6 +1,10 @@
 /* eslint-disable no-empty-pattern */
 // import PropTypes from 'prop-types';
 
+import { DataTable } from "../../components/data-table";
+
+
+
 export const HomePage = () => {
 	return       <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4">
 	<div className="bg-white p-4 shadow-md">
