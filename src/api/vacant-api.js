@@ -2,10 +2,8 @@ import { instance } from "./base-api";
 
 
 export const vacantApi = {
-  getVacant: () => {
-    return instance.get("", {
-      params: {},
-    });
+  getVacancies: () => {
+    return instance.get("job-vacancy",);
   },
   
   auth: (formData) => {
