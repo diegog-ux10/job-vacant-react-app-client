@@ -1,23 +1,16 @@
+import logo from "./../../../../assets/logo.png";
 
-import logo from "./../../../../assets/logo.png"
-
-export const BaseLayout = ({children}) => {
+export const BaseLayout = ({ children }) => {
   return (
-    <div className="w-screen">
-     <nav className="w-screen h-20 bg-slate-400 flex justify-between items-center">
-      <img src={logo} className="h-20 w-28"></img>
-      <h1 className="text-white text-3xl font-semibold">Encuentra o Publica Empleos</h1>
-      <a  className="text-white mr-8">Publicar Vacantes ></a>
-     </nav>
-     <section className="gap-5 grid grid-cols-3 mx-4 mt-6" >
-      <div className=" bg-red-400"> Vacante</div>
-      <div className=" bg-red-400"> Vacante</div>
-      <div className=" bg-red-400"> Vacante</div>
-      <div className=" bg-red-400"> Vacante</div>
-      <div className=" bg-red-400"> Vacante</div>
-      <div className=" bg-red-400"> Vacante</div>
-     </section>
-     {children}
+    <div className="w-screen bg-gray-100">
+      <nav className=" bg-slate-700 p-4 text-white flex items-center justify-between">
+        <img src={logo} className="w-12 h-12 rounded-full" alt="Logo" />
+        <h1 className="text-2xl font-bold">Encuentra o Publica Empleos</h1>
+        <a href="/login" className="bg-blue-600 px-4 py-2 rounded-md hover:bg-blue-200 hover:text-black">
+          Publicar Vacantes
+        </a>
+      </nav>
+      {children}
     </div>
-  )
-}
+  );
+};
