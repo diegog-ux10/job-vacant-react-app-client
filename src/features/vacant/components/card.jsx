@@ -2,7 +2,7 @@ import React from 'react'
 
 function Card() {
   return (
-    <div className='flex shadow-md'>
+    <div className='flex shadow-md bg-white'>
       <div className='flex flex-col m-4'>
         <h2 className='text-xl text-blue-500'>React Developer Jr.</h2>
         <span className='font-bold'>IBM</span>
