@@ -1,26 +1,113 @@
+import { useState } from 'react'
+import { vacantApi } from '../../../api/vacant-api'
+import { useDispatch } from 'react-redux'
+import { closeModal, setMssg } from '../../../redux/slices/site-slice'
+
+const initialState = {
+  title: '',
+  description: '',
+  salary: '',
+  user_id: '1',
+}
+
 export const CreateVacancyForm = () => {
+  const [formData, setFormData] = useState(initialState)
+
+  const dispatch = useDispatch()
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+
+  const handleCancelClick = () => {
+    dispatch(closeModal())
+  }
+
+  const handleCreateVacancySubmit = async (e) => {
+    e.preventDefault()
+    try {
+      const response = await vacantApi.createVacancies(formData)
+      console.log(response)
+      dispatch(closeModal())
+      dispatch(setMssg({mssg: 'Vacante Creada Correctamente', status: 'success'}))
+      setFormData(initialState)
+    } catch (error) {
+      dispatch(setMssg({mssg: `Error: ${error}`, status: 'error'}))
+    }
+  }
+
   return (
-    <section className='justify-center  content-center flex '>
-      <section className='w-[400px] border-2 items-center flex flex-col justify-center rounded-md border-red-200 bg-slate-200'>
-      <h2>Register new Vancancie</h2>
-      <h4>Work name</h4>
-      <input type="text" className='border-2 border-red-50 w-[200px]'/>
-      <h4>Description</h4>
-      <input type="text" className='border-2 border-red-50 w-[200px]'/>
-      <h4>Time</h4>
-      <select name="select" id="" className='border-2 border-red-50'>
-        <option value="dialog">
-          Corrdinate with employer
-        </option>
-        <option value="full">
-          Full-time
-        </option>
-      <option value="parcial">Parcila-time</option>
-      </select>
-      <h4>salary</h4>
-      <input type="number" className='border-2 border-red-50 w-[200px]'/>
-      <button className='bg-blue-500 hover:bg-blue-400 active:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300 rounded-md w-[80px]'>Save</button>
-      </section>
-    </section>
+    <form
+      className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-1/3"
+      onSubmit={handleCreateVacancySubmit}
+    >
+      <div className="mb-4">
+        <label
+          className="block text-gray-700 text-sm font-bold mb-2"
+          htmlFor="title"
+        >
+          Titulo para la Vacante
+        </label>
+        <input
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="title"
+          type="text"
+          placeholder="title"
+          name="title"
+          value={formData.title}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="mb-4">
+        <label
+          className="block text-gray-700 text-sm font-bold mb-2"
+          htmlFor="description"
+        >
+          Descripcion de la Vacante
+        </label>
+        <textarea
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="description"
+          type="text"
+          placeholder="description"
+          name="description"
+          value={formData.description}
+          onChange={handleChange}
+        ></textarea>
+        {/* <p className="text-red-500 text-xs italic">Please choose a password.</p> */}
+      </div>
+      <div className="mb-6">
+        <label
+          className="block text-gray-700 text-sm font-bold mb-2"
+          htmlFor="salary"
+        >
+          Salario
+        </label>
+        <input
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="salary"
+          type="text"
+          placeholder="salary"
+          name="salary"
+          value={formData.salary}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="flex items-center justify-between">
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="submit"
+        >
+          Crear Vacante
+        </button>
+        <button
+          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="button"
+          onClick={handleCancelClick}
+        >
+          Cancelar
+        </button>
+      </div>
+    </form>
   )
 }
