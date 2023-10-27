@@ -8,8 +8,6 @@ import { AuthLayout } from './features/auth/layouts'
 import { AdminPage, HomePage } from './features/shared/pages'
 import { LoginPage } from './features/auth/pages'
 
-
-
 function App() {
 
   return (
