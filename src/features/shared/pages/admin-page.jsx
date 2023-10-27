@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { JobVacanciesTable } from "../../job-vacancy"
+import { JobVacanciesView } from "../../job-vacancy"
 
 /* eslint-disable react/prop-types */
 export const AdminPage = () => {
@@ -29,7 +29,7 @@ export const AdminPage = () => {
             adminView === '' && (<h1>Home</h1>)
           }
           {
-            adminView === 'vacancies' && (<JobVacanciesTable />)
+            adminView === 'vacancies' && (<JobVacanciesView />)
           }
           {
             adminView === 'applies' && (<h1>applies</h1>)

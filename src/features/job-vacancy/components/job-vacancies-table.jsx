@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { vacantApi } from '../../../api/vacant-api'
-import { mapToRowsTable } from '../../shared/helpers/mapToRowsTable'
+import { mapToRowsTable } from '../../shared/helpers'
 import { AdminTable } from '../../shared/components'
 
 
