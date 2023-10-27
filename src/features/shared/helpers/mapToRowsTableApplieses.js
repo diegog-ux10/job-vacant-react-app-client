@@ -9,6 +9,4 @@ export const mapToRowsTableApplises = (responseArr) => {
     })
 
     return mappedArr
-} 
-
-// { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
+}
