@@ -1,28 +1,25 @@
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from 'react'
 import { vacantApi } from '../../../api/vacant-api'
 import { mapToRowsTableApplises } from '../../shared/helpers'
 import { AdminTable } from '../../shared/components'
 
-function JobAppliesesTable() {
-  const [data, setData] = useState (null);
+export const JobAppliesTable = () => {
+  const [data, setData] = useState(null)
 
   useEffect(() => {
     const fetchData = async () => {
-      try{
+      try {
         const response = await vacantApi.getApplieses()
-        setData(response.data);
-        console.log(response.data);
+        setData(response.data)
       } catch {
-        console.log('Error fetching data: ');
+        console.log('Error fetching data: ')
       }
     }
-    fetchData();
-  }, []);
+    fetchData()
+  }, [])
 
   const columns = [
-    { field: 'id',
-      headerName: 'ID', 
-      width: 90 },
+    { field: 'id', headerName: 'ID', width: 90 },
     {
       field: 'name',
       headerName: 'Nombre',
@@ -43,10 +40,12 @@ function JobAppliesesTable() {
       editable: true,
     },
   ]
-console.log(data);
-  {
-     return data !== null ?  (<AdminTable columns={columns} rows={mapToRowsTableApplises(data)} />) : (<h1>Error</h1>)
-  }
 
+  {
+    return data !== null ? (
+      <AdminTable columns={columns} rows={mapToRowsTableApplises(data)} />
+    ) : (
+      <h1>Error</h1>
+    )
+  }
 }
-export default JobAppliesesTable;
