@@ -1,4 +1,4 @@
-import logo from "./../../../../assets/logo.png";
+import logo from "./../../../assets/logo.png";
 
 // eslint-disable-next-line react/prop-types
 export const BaseLayout = ({ children }) => {

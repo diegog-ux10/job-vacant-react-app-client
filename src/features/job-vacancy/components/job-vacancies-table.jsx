@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { vacantApi } from '../../../api/vacant-api'
-import { Table } from '../../shared/components/Table'
 import { mapToRowsTable } from '../../shared/helpers/mapToRowsTable'
+import { AdminTable } from '../../shared/components'
 
 
 export const JobVacanciesTable = () => {
@@ -44,7 +44,7 @@ export const JobVacanciesTable = () => {
   ]
 
   {
-     return data !== null ?  (<Table columns={columns} rows={mapToRowsTable(data)} />) : (<h1>Error</h1>)
+     return data !== null ?  (<AdminTable columns={columns} rows={mapToRowsTable(data)} />) : (<h1>Error</h1>)
   }
 
 }

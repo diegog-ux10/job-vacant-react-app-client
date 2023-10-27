@@ -1,6 +1,4 @@
-import React from 'react'
-
-function Card() {
+export const VacancyCard = () => {
   return (
     <div className='flex shadow-md bg-white'>
       <div className='flex flex-col m-4'>
@@ -14,5 +12,3 @@ function Card() {
     </div>
   )
 }
-
-export default Card

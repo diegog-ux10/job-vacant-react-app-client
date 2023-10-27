@@ -3,11 +3,12 @@ import {
   Route,
   Routes,
 } from 'react-router-dom'
-import { BaseLayout } from './features/shared/pages/layouts/base-layout'
-import { HomePage } from './features/shared/pages/HomePage/home-page'
-import { LoginPage } from './features/auth/pages/LoginPage/login-page'
-import { AdminPage } from './features/shared/pages/AdminPage/admin-page'
-import { AuthLayout } from './features/auth/pages/layouts/AuthLayout'
+import { BaseLayout } from './features/shared/layouts'
+import { AuthLayout } from './features/auth/layouts'
+import { AdminPage, HomePage } from './features/shared/pages'
+import { LoginPage } from './features/auth/pages'
+
+
 
 function App() {
 

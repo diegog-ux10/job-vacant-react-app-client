@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { vacantApi } from '../../../../api/vacant-api';
+import { vacantApi } from '../../../api/vacant-api';
 import { useDispatch } from 'react-redux';
-import { authenticate, setUser } from '../../../../redux/slices/user-slice';
+import { authenticate, setUser } from '../../../redux/slices/user-slice';
 import { useNavigate } from "react-router-dom";
 
 export const LoginPage = () => {

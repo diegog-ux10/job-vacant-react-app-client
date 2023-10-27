@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { JobVacanciesTable } from "../../../vacant/components/job-vacancies-table"
+import { JobVacanciesTable } from "../../job-vacancy"
 
 /* eslint-disable react/prop-types */
 export const AdminPage = () => {
