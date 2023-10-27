@@ -1,1 +1,2 @@
-export * from './mapToRowsTable';
+export * from './mapToRowsTableVacant';
+export * from './mapToRowsTableApplieses'
