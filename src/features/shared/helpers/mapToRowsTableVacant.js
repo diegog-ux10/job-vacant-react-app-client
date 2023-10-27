@@ -1,4 +1,4 @@
-export const mapToRowsTable = (responseArr) => {
+export const mapToRowsTableVacant = (responseArr) => {
     const mappedArr = responseArr.map((vacancy)=>{
         return {
             id: vacancy.id,

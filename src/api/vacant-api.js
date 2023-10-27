@@ -10,6 +10,10 @@ export const vacantApi = {
     return instance.post("job-vacancy", formData);
   },
   
+  getApplieses: () => {
+    return instance.get('job-apply');
+},
+  
   auth: (formData) => {
     return instance.post("/login", formData)
   }
