@@ -1,20 +1,23 @@
-import { instance } from "./base-api";
-
+import { instance } from './base-api'
 
 export const vacantApi = {
-  getVacancies: () => {
-    return instance.get("job-vacancy",);
+  getVacancies: (currentPage) => {
+    return instance.get('job-vacancy', {
+      params: {
+        page: currentPage,
+      },
+    })
   },
 
   createVacancies: (formData) => {
-    return instance.post("job-vacancy", formData);
+    return instance.post('job-vacancy', formData)
   },
-  
+
   getApplieses: () => {
-    return instance.get('job-apply');
-},
-  
+    return instance.get('job-apply')
+  },
+
   auth: (formData) => {
-    return instance.post("/login", formData)
-  }
-};
+    return instance.post('/login', formData)
+  },
+}

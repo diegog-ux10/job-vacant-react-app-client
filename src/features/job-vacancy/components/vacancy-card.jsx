@@ -15,7 +15,7 @@ export const VacancyCard = ({title, description, salary}) => {
           {description}
         </p>
         <h4 className="text-lg font-semibold text-blue-500 mt-2">
-         {salary}
+         Salario: ${salary}
         </h4>
       </main>
       <footer className="flex justify-between">
