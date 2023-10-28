@@ -5,20 +5,19 @@ import { AdminTable } from '../../shared/components'
 
 
 export const JobVacanciesTable = () => {
-
-  const [data, setData] = useState(null)
+  const [data, setData] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await vacantApi.getVacancies()
-        setData(response.data)
+        const response = await vacantApi.getVacancies();
+        setData(response.data.vacancies); // Accede a la propiedad "vacancies"
       } catch (error) {
-        console.error('Error fetching data:', error)
+        console.error('Error fetching data:', error);
       }
     }
-    fetchData()
-  }, []) 
+    fetchData();
+  }, []);
 
   const columns = [
     { field: 'id', headerName: 'ID', width: 90 },
@@ -30,7 +29,7 @@ export const JobVacanciesTable = () => {
     },
     {
       field: 'description',
-      headerName: 'Descripccion',
+      headerName: 'Descripción',
       width: 150,
       editable: true,
     },
@@ -41,10 +40,14 @@ export const JobVacanciesTable = () => {
       width: 110,
       editable: true,
     },
-  ]
+  ];
 
-  {
-     return data !== null ?  (<AdminTable columns={columns} rows={mapToRowsTableVacant(data)} />) : (<h1>Error</h1>)
-  }
-
+  return data !== null ? (
+    <AdminTable columns={columns} rows={mapToRowsTableVacant(data)} />
+  ) : (
+    <div className="bg-red-500 text-white p-4 rounded shadow-lg">
+      Tabla no Disponible
+    </div>
+  );
 }
+

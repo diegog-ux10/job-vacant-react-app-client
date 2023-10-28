@@ -45,7 +45,9 @@ export const JobAppliesTable = () => {
     return data !== null ? (
       <AdminTable columns={columns} rows={mapToRowsTableApplises(data)} />
     ) : (
-      <h1>Error</h1>
-    )
+      <div className="bg-red-500 text-white p-4 rounded shadow-lg">
+        Tabla no Disponible
+      </div>
+    );
   }
 }
