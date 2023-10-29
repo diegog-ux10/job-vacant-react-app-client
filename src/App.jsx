@@ -1,13 +1,21 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from 'react-router-dom'
 import { BaseLayout } from './features/shared/layouts'
 import { AuthLayout } from './features/auth/layouts'
 import { AdminPage, HomePage } from './features/shared/pages'
 import { LoginPage } from './features/auth/pages'
-import { FeedbackMssg } from './features/shared/components/feedback-mssg'
-import { useSelector } from 'react-redux'
+import { useAuthStore } from './features/shared'
 
 function App() {
-  const { mssg } = useSelector((state) => state.site)
+  const { status } = useAuthStore()
+
+  if (status === 'checking') {
+    return <h3>Cargando...</h3>
+  }
 
   return (
     <>
@@ -21,18 +29,26 @@ function App() {
               </BaseLayout>
             }
           />
-          <Route
-            path="/login"
-            element={
-              <AuthLayout>
-                <LoginPage />
-              </AuthLayout>
-            }
-          />
-          <Route path="/admin" element={<AdminPage />} />
+          {status === 'non-authenticated' ? (
+            <>
+              <Route path="/admin" element={<Navigate to="/login" />} />
+              <Route
+                path="/login"
+                element={
+                  <AuthLayout>
+                    <LoginPage />
+                  </AuthLayout>
+                }
+              />
+            </>
+          ) : (
+            <>
+              <Route path="/admin" element={<AdminPage />} />
+              <Route path="/login" element={<Navigate to="/admin" />} />
+            </>
+          )}
         </Routes>
       </Router>
-      {mssg !== null ? <FeedbackMssg /> : null}
     </>
   )
 }

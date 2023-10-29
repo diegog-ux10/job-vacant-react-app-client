@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { vacantApi } from '../../../api/vacant-api'
 import { useDispatch } from 'react-redux'
-import { closeModal, setMssg } from '../../../redux/slices/site-slice'
+import { closeModalVacancyForm } from '../../../redux/slices/site-slice'
+import Swal from 'sweetalert2'
 
 const initialState = {
   title: '',
@@ -20,7 +21,7 @@ export const CreateVacancyForm = () => {
   }
 
   const handleCancelClick = () => {
-    dispatch(closeModal())
+    dispatch(closeModalVacancyForm())
   }
 
   const handleCreateVacancySubmit = async (e) => {
@@ -28,11 +29,15 @@ export const CreateVacancyForm = () => {
     try {
       const response = await vacantApi.createVacancies(formData)
       console.log(response)
-      dispatch(closeModal())
-      dispatch(setMssg({mssg: 'Vacante Creada Correctamente', status: 'success'}))
+      dispatch(closeModalVacancyForm())
+      Swal.fire(
+        'Vacante Creata',
+        'La vacante ha sido creada corectamente',
+        'success'
+      )
       setFormData(initialState)
     } catch (error) {
-      dispatch(setMssg({mssg: `Error: ${error}`, status: 'error'}))
+      Swal.fire('Error', `Error: ${error}`, 'error')
     }
   }
 

@@ -1,42 +1,55 @@
-import { useState } from 'react';
-import { vacantApi } from '../../../api/vacant-api';
-import { useDispatch } from 'react-redux';
-import { authenticate, setUser } from '../../../redux/slices/user-slice';
-import { useNavigate } from "react-router-dom";
+import { useEffect } from 'react'
+
+import Swal from 'sweetalert2'
+
+import { useAuthStore } from '../../shared/hooks'
+import { useForm } from '../../shared/hooks/useForm'
+
+// Estado Inicial del Formulario de Login
+const initialState = {
+  email: '',
+  password: '',
+}
 
 export const LoginPage = () => {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '', // Cambié 'userpassword' a 'password'
-  });
+  const { startLogin, errorMssg } = useAuthStore()
+  const { formState, onInputChange } = useForm(initialState)
 
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  }
+  // const dispatch = useDispatch()
+  // const navigate = useNavigate()
 
   const handleLoginSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     try {
-      const response = await vacantApi.auth(formData);
-      dispatch(setUser(response.data.user));
-      dispatch(authenticate());
-      navigate("/");
+      startLogin(formState)
+      // navigate('/admin')
     } catch (error) {
-      console.error('Error sending data:', error);
+      console.error('Error sending data:', error)
     }
   }
+
+  useEffect(() => {
+    if (errorMssg !== undefined) {
+      Swal.fire('Error al hacer login', errorMssg, 'error')
+    }
+  }, [errorMssg])
 
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="max-w-md w-full">
         <h1 className="text-2xl font-bold mb-4">Iniciar Sesion</h1>
-        <p className="text-gray-600 mb-4">Por favor inicie sesión para continuar</p>
-        <form onSubmit={handleLoginSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <p className="text-gray-600 mb-4">
+          Por favor inicie sesión para continuar
+        </p>
+        <form
+          onSubmit={handleLoginSubmit}
+          className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        >
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="email"
+            >
               Email
             </label>
             <input
@@ -44,12 +57,15 @@ export const LoginPage = () => {
               id="email"
               type="text"
               name="email"
-              value={formData.email}
-              onChange={handleChange}
+              value={formState.email}
+              onChange={onInputChange}
             />
           </div>
           <div className="mb-6">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="password"
+            >
               Password
             </label>
             <input
@@ -57,8 +73,8 @@ export const LoginPage = () => {
               id="password"
               type="password"
               name="password"
-              value={formData.password}
-              onChange={handleChange}
+              value={formState.password}
+              onChange={onInputChange}
             />
           </div>
           <div className="flex items-center justify-between">
@@ -72,5 +88,5 @@ export const LoginPage = () => {
         </form>
       </div>
     </div>
-  );
+  )
 }

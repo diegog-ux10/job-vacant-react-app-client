@@ -4,12 +4,14 @@ import { vacantApi } from '../../../api/vacant-api'
 import { useDispatch, useSelector } from 'react-redux'
 import { ProgressCircle } from '../components/progress-circle'
 import { setLoading } from '../../../redux/slices/site-slice'
+import { ModalWrapper } from '../components'
+import { CreateApplyForm } from '../../job-applies'
 
 export const HomePage = () => {
   const [data, setData] = useState(null)
   const [currentPage, setCurrentPage] = useState(1)
   const [totalPages, setTotalPages] = useState(1)
-  const { isLoading } = useSelector((state) => state.site)
+  const { isLoading, isModalApplyFormOpen } = useSelector((state) => state.site)
 
   const dispatch = useDispatch()
 
@@ -57,6 +59,7 @@ export const HomePage = () => {
                 title={vacancy.title}
                 description={vacancy.description}
                 salary={vacancy.salary}
+                id={vacancy.id}
               />
             ))}
           </section>
@@ -75,6 +78,11 @@ export const HomePage = () => {
         </div>
       ) : (
         <h2>No hay Vacantes Disponibles</h2>
+      )}
+      {isModalApplyFormOpen && (
+        <ModalWrapper>
+          <CreateApplyForm />
+        </ModalWrapper>
       )}
     </div>
   )

@@ -1,43 +1,46 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  mssg: null,
-  mssgStatus: 'normal',
-  isModalOpen: false,
+  isModalVacancyFormOpen: false,
+  isModalApplyFormOpen: false,
   isLoading: false,
+  selectedVacancy: null,
 }
 
 export const siteSlice = createSlice({
   name: 'site',
   initialState,
   reducers: {
-    setMssg: (state, action) => {
-      state.mssg = action.payload.mssg
-      state.mssgStatus = action.payload.status
+    openModalVacancyForn: (state) => {
+      state.isModalVacancyFormOpen = true
     },
-    removeMssg: (state) => {
-      state.mssg = null
+    closeModalVacancyForm: (state) => {
+      state.isModalVacancyFormOpen = false
     },
-    openModal: (state) => {
-      state.isModalOpen = true
+    openModalApplyForn: (state) => {
+      state.isModalApplyFormOpen = true
     },
-    closeModal: (state) => {
-      state.isModalOpen = false
+    closeModalApplyForm: (state) => {
+      state.isModalApplyFormOpen = false
     },
     setLoading: (state, { payload }) => {
       state.isLoading = payload
+    },
+    setSelectedVacancy: (state, { payload }) => {
+      state.selectedVacancy = payload
     },
   },
 })
 
 // Action creators are generated for each case reducer function
 export const {
-  setMssg,
-  removeMssg,
-  openModal,
-  closeModal,
+  openModalVacancyForn,
+  closeModalVacancyForm,
+  openModalApplyForn,
+  closeModalApplyForm,
   setMssgStatus,
   setLoading,
+  setSelectedVacancy,
 } = siteSlice.actions
 
 export default siteSlice.reducer

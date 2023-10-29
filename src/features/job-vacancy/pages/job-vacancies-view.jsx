@@ -2,13 +2,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { ModalWrapper } from '../../shared'
 import { CreateVacancyForm } from '../components'
 import { JobVacanciesTable } from '../components'
-import { openModal } from '../../../redux/slices/site-slice'
+import { openModalVacancyForn } from '../../../redux/slices/site-slice'
 
 export const JobVacanciesView = () => {
-  const { isModalOpen } = useSelector((state) => state.site)
+  const { isModalVacancyFormOpen } = useSelector((state) => state.site)
   const dispatch = useDispatch()
   const handleClick = () => {
-    dispatch(openModal())
+    dispatch(openModalVacancyForn())
   }
   return (
     <div>
@@ -18,7 +18,7 @@ export const JobVacanciesView = () => {
       >
         Create Vacant
       </button>
-      {isModalOpen && (
+      {isModalVacancyFormOpen && (
         <ModalWrapper>
           <CreateVacancyForm />
         </ModalWrapper>
