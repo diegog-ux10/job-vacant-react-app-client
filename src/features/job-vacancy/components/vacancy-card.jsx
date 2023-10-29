@@ -5,7 +5,8 @@ import {
   setSelectedVacancy,
 } from '../../../redux/slices/site-slice'
 
-export const VacancyCard = ({ title, description, salary, id }) => {
+export const VacancyCard = ({ title, description, salary, id, user }) => {
+  console.log(user)
   const dispatch = useDispatch()
 
   const handleApplyClick = () => {
@@ -17,8 +18,8 @@ export const VacancyCard = ({ title, description, salary, id }) => {
     <section className="bg-white rounded-lg shadow-md p-4">
       <header className="mb-2">
         <h2 className="text-2xl font-semibold text-blue-500">{title}</h2>
-        <span className="text-gray-600">IBM</span>
-        <p className="text-gray-600">Ciudad de México</p>
+        <span className="text-gray-600">{user.company}</span>
+        <p className="text-gray-600">{user.city}</p>
       </header>
       <main className="mb-4">
         <p className="text-gray-800">{description}</p>
@@ -46,4 +47,5 @@ VacancyCard.propTypes = {
   title: PropTypes.string.isRequired,
   salary: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
+  user: PropTypes.object.isRequired,
 }

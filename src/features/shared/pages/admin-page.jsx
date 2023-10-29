@@ -41,7 +41,7 @@ export const AdminPage = () => {
             <li className="w-full"><a onClick={handleLogoutBtnClick}  className="text-white inline-block w-full hover:bg-slate-500 py-2 px-4 rounded">Logout</a></li>
           </ul>
         </aside>
-        <div className="p-4">
+        <div className="p-4 w-full h-screen">
           {
             adminView === '' && (<h1>Home</h1>)
           }

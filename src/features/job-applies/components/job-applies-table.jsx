@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { vacantApi } from '../../../api/vacant-api'
 import { mapToRowsTableApplises } from '../../shared/helpers'
 import { AdminTable } from '../../shared/components'
+import { CircularProgress } from '@mui/material'
 
 export const JobAppliesTable = () => {
   const [data, setData] = useState(null)
@@ -45,7 +46,7 @@ export const JobAppliesTable = () => {
     return data !== null ? (
       <AdminTable columns={columns} rows={mapToRowsTableApplises(data)} />
     ) : (
-      <h1>Error</h1>
+      <CircularProgress />
     )
   }
 }

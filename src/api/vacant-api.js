@@ -1,10 +1,11 @@
-import instance  from './base-api'
+import instance from './base-api'
 
 export const vacantApi = {
-  getVacancies: (currentPage = null) => {
+  getVacancies: (currentPage = null, id = undefined) => {
     return instance.get('job-vacancy', {
       params: {
         page: currentPage,
+        id,
       },
     })
   },

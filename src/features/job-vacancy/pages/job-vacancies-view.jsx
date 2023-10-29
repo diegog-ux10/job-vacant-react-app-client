@@ -11,13 +11,17 @@ export const JobVacanciesView = () => {
     dispatch(openModalVacancyForn())
   }
   return (
-    <div>
-      <button
-        onClick={handleClick}
-        className="bg-blue-500 hover:bg-blue-400 active:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300 rounded-md w-[150px]"
-      >
-        Create Vacant
-      </button>
+    <div className="w-full">
+      <div className="flex justify-between items-center mb-6">
+        <h1 className='font-bold text-lg'>Vacantes Publicadas</h1>
+        <button
+          onClick={handleClick}
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          + Crear Vacante
+        </button>
+      </div>
+
       {isModalVacancyFormOpen && (
         <ModalWrapper>
           <CreateVacancyForm />

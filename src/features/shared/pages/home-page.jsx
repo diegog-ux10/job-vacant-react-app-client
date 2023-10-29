@@ -60,6 +60,7 @@ export const HomePage = () => {
                 description={vacancy.description}
                 salary={vacancy.salary}
                 id={vacancy.id}
+                user={vacancy.user}
               />
             ))}
           </section>
