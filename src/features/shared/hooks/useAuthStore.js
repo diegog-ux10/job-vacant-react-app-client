@@ -14,14 +14,15 @@ export const useAuthStore = () => {
     dispatch(checking())
     try {
       const { data } = await vacantApi.auth(formData)
-      dispatch(login(data.user))
+      dispatch(login(data))
       Swal.fire(
         'Has entrado correctamente',
         `Bienvenido ${data.user.name}`,
         'success'
       )
     } catch (error) {
-      Swal.fire('Error', error, 'error')
+      console.log(error);
+      Swal.fire('Error1', error.message, 'error')
     }
   }
 
