@@ -1,3 +1,5 @@
+
+
 export const mapToRowsTableApplises = (responseArr) => {
   const mappedArr = responseArr.map((apply) => {
     return {
