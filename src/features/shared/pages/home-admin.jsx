@@ -9,6 +9,7 @@ import vacante from '../../../assets/vacante.png'
 import { vacantApi } from '../../../api/vacant-api'
 import { useState, useEffect } from 'react'
 import trabajadores from '../../../assets/trabajadores.jpg'
+import LogoutIcon from '@mui/icons-material/Logout';
 
 export default function HomeAdmin() {
   const [anchorEl, setAnchorEl] = React.useState(null)
@@ -63,7 +64,7 @@ export default function HomeAdmin() {
           <h1 className="text-3xl font-bold ml-4">Bienvenido Adminitrador</h1>
           <div>
             <button variant="contained" onClick={handleClick}>
-              <Stack direction="row" spacing={2} className="mr-6">
+              <Stack direction="row" spacing={3} className="mr-6">
                 <Avatar sx={{ bgcolor: deepOrange[500] }}>A</Avatar>
               </Stack>
             </button>
@@ -77,8 +78,8 @@ export default function HomeAdmin() {
                 horizontal: 'left',
               }}
             >
-              <a className="px-3 cursor-pointer" onClick={handleLogoutBtnClick}>
-                Logout
+              <a className="px-3 py-1 cursor-pointer" onClick={handleLogoutBtnClick}>
+                Logout <LogoutIcon/>
               </a>
             </Popover>
           </div>
