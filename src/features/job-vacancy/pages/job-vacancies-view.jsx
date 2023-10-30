@@ -8,6 +8,7 @@ import Stack from '@mui/material/Stack'
 import { deepOrange } from '@mui/material/colors'
 import Popover from '@mui/material/Popover'
 import { logout } from '../../../redux/slices/user-slice'
+import LogoutIcon from '@mui/icons-material/Logout'
 import * as React from 'react'
 
 export const JobVacanciesView = () => {
@@ -55,7 +56,7 @@ export const JobVacanciesView = () => {
             }}
           >
             <a className="px-3 cursor-pointer" onClick={handleLogoutBtnClick}>
-              Logout
+              Logout <LogoutIcon />
             </a>
           </Popover>
         </div>
