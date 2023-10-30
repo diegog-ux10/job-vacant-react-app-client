@@ -4,12 +4,12 @@ import { mapToRowsTableVacant } from '../../shared/helpers'
 import { AdminTable } from '../../shared/components'
 import { CircularProgress } from '@mui/material'
 import { useSelector } from 'react-redux'
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export const JobVacanciesTable = () => {
   const {
     user: { id },
   } = useSelector((state) => state.user)
-  console.log(id)
   const [data, setData] = useState(null)
 
   useEffect(() => {
@@ -45,7 +45,14 @@ export const JobVacanciesTable = () => {
       width: 110,
       editable: true,
     },
+    {
+      field: 'delete',
+      headerName: 'Borrar',
+      width: 90,
+      formatter:  ({rows}) => <DeleteIcon/>,
+    },
   ]
+
 
   {
     return data !== null ? (

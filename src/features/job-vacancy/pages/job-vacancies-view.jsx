@@ -10,10 +10,11 @@ export const JobVacanciesView = () => {
   const handleClick = () => {
     dispatch(openModalVacancyForn())
   }
+
   return (
     <div className="w-full">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className='font-bold text-lg'>Vacantes Publicadas</h1>
+      <div className="flex justify-between items-center m-6">
+        <h1 className="font-bold text-lg">Vacantes Publicadas</h1>
         <button
           onClick={handleClick}
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
