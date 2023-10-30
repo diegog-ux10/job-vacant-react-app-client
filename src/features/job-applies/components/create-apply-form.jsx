@@ -5,6 +5,7 @@ import {
   closeModalApplyForm,
   setSelectedVacancy,
 } from '../../../redux/slices/site-slice'
+import Swal from 'sweetalert2'
 
 const initialState = {
   name: '',
@@ -37,6 +38,11 @@ export const CreateApplyForm = () => {
       console.log(response)
       dispatch(closeModalApplyForm())
       setFormData(initialState)
+      Swal.fire(
+        'Postulacion Exitosa!',
+        'Tu postulacion ha sido enviada con exito',
+        'success'
+      )
     } catch (error) {
       console.log(error)
     }
