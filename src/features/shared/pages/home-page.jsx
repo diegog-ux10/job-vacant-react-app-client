@@ -64,15 +64,12 @@ export const HomePage = () => {
               />
             ))}
           </section>
-          <div className="pagination">
-            <button onClick={handlePrevPage} disabled={currentPage === 1}>
+          <div className="pagination flex justify-center items-center my-4">
+          <button onClick={handlePrevPage} disabled={currentPage === 1} className=" cursor-pointer mr-2 px-3 py-2 bg-blue-500 text-white rounded">
               Prev
             </button>
             <span>{`Page ${currentPage} of ${totalPages}`}</span>
-            <button
-              onClick={handleNextPage}
-              disabled={currentPage === totalPages}
-            >
+            <button onClick={handleNextPage} disabled={currentPage === totalPages} className="ml-2 px-3 py-2 bg-blue-500 text-white rounded">
               Next
             </button>
           </div>

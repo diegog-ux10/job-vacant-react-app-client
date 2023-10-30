@@ -16,13 +16,13 @@ export const useAuthStore = () => {
       const { data } = await vacantApi.auth(formData)
       dispatch(login(data))
       Swal.fire(
-        '¡Inicio de sesión exitoso!',
-        `Bienvenido ${data.user.name}. Has iniciado sesión con éxito.`,
+        'Has entrado correctamente',
+        `Bienvenido ${data.user.name}`,
         'success'
       )
     } catch (error) {
       console.log(error);
-      Swal.fire('Error en el inicio de sesión', error.message, 'error')
+      Swal.fire('Error1', error.message, 'error')
     }
   }
 

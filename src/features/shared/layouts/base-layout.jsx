@@ -14,7 +14,7 @@ export const BaseLayout = ({ children }) => {
         <h1 className="text-2xl font-bold">Encuentra o Publica Empleos</h1>
         <a
           onClick={handleClick}
-          className="bg-blue-600 px-4 py-2 rounded-md hover:bg-blue-200 hover:text-black"
+          className="bg-blue-600 px-4 py-2 rounded-md hover:bg-blue-200 hover:text-black cursor-pointer"
         >
           Publicar Vacantes
         </a>

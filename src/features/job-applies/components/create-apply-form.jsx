@@ -44,11 +44,7 @@ export const CreateApplyForm = () => {
         'success'
       )
     } catch (error) {
-      console.error('Error sending data:', error);
-      Swal.fire(
-        'Error en la postulación',
-        'Hubo un problema al enviar la postulación. Por favor, inténtalo de nuevo más tarde.',
-        'error');
+      console.log(error)
     }
   }
 
@@ -115,7 +111,7 @@ export const CreateApplyForm = () => {
           className="block text-gray-700 text-sm font-bold mb-2"
           htmlFor="work_experience"
         >
-          Tu Telefono
+          Tus Experiencias Lavorales
         </label>
         <input
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -125,6 +121,8 @@ export const CreateApplyForm = () => {
           name="work_experience"
           value={formData.work_experience}
           onChange={handleChange}
+          min="0"
+          step="1" 
         />
         {/* <p className="text-red-500 text-xs italic">Please choose a password.</p> */}
       </div>
