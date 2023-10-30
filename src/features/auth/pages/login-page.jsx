@@ -22,7 +22,6 @@ export const LoginPage = () => {
     e.preventDefault()
     try {
       startLogin(formState)
-      // navigate('/admin')
     } catch (error) {
       console.error('Error sending data:', error)
     }

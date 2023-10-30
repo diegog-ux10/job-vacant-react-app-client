@@ -3,6 +3,7 @@ import { vacantApi } from '../../../api/vacant-api'
 import {
   checking,
   login,
+  logout,
 } from '../../../redux/slices/user-slice'
 import Swal from 'sweetalert2'
 
@@ -21,7 +22,7 @@ export const useAuthStore = () => {
         'success'
       )
     } catch (error) {
-      console.log(error);
+      dispatch(logout())
       Swal.fire('Error1', error.message, 'error')
     }
   }
