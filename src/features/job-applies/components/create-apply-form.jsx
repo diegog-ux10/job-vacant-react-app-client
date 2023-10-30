@@ -44,7 +44,11 @@ export const CreateApplyForm = () => {
         'success'
       )
     } catch (error) {
-      console.log(error)
+      console.error('Error sending data:', error);
+      Swal.fire(
+        'Error en la postulación',
+        'Hubo un problema al enviar la postulación. Por favor, inténtalo de nuevo más tarde.',
+        'error');
     }
   }
 

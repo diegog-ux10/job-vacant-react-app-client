@@ -25,6 +25,9 @@ export const LoginPage = () => {
       // navigate('/admin')
     } catch (error) {
       console.error('Error sending data:', error)
+      //manejar el error de inicio de sesión de manera más específica, como mostrar un mensaje al usuario.
+    
+    Swal.fire('Error de inicio de sesión', 'Hubo un problema al intentar iniciar sesión. Por favor, inténtalo de nuevo más tarde.', 'error');  
     }
   }
 
