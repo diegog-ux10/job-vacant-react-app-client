@@ -35,26 +35,27 @@ export default function HomeAdmin() {
 
 
   return (
-    <div className='w-full'>
-      <div className="flex flex-col ">
+    <div className="w-full">
+      <div className="flex flex-col items-center mt-24 space-y-8">
 
-        <section className="self-center flex gap-40 mt-24">
-          <div className=" rounded-md ring-2 p-4">
-            <h1 className="text-4xl mb-6 font-semibold">Postulantes</h1>
-            <div className="flex items-center gap-4">
-              <img src={trabajadores} className="h-60 w-70" />
+        <section className="flex space-x-40">
+          <div className="rounded-md border-2 p-4">
+            <h1 className="text-4xl font-semibold mb-6">Postulantes</h1>
+            <div className="flex items-center space-x-4">
+              <img src={trabajadores} className="h-60 w-70" alt="Trabajadores" />
               <h2 className="text-8xl">{contadorApplieses}</h2>
             </div>
           </div>
-          <div className=" rounded-md ring-2 p-4">
-            <h1 className="text-4xl mb-6 font-semibold">Vacantes</h1>
-            <div className="flex items-center gap-8">
-              <img className="h-60 w-72" src={vacante} />
+          <div className="rounded-md border-2 p-4">
+            <h1 className="text-4xl font-semibold mb-6">Vacantes</h1>
+            <div className="flex items-center space-x-8">
+              <img src={vacante} className="h-60 w-72" alt="Vacante" />
               <h2 className="text-8xl">{contadorVacanties}</h2>
             </div>
           </div>
         </section>
       </div>
     </div>
+
   )
 }
