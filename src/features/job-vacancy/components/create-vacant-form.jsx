@@ -31,7 +31,7 @@ export const CreateVacancyForm = () => {
       console.log(response)
       dispatch(closeModalVacancyForm())
       Swal.fire(
-        'Vacante Creata',
+        'Vacante Creada',
         'La vacante ha sido creada corectamente',
         'success'
       )
