@@ -35,7 +35,7 @@ export const VacancyCard = ({ title, description, salary, id, user }) => {
           onClick={handleApplyClick}
           className=" cursor-pointer bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300"
         >
-          Aplicar ahora
+         Aplicar ahora
         </a>
       </footer>
     </section>

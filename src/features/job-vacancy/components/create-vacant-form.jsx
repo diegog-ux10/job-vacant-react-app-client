@@ -31,7 +31,7 @@ export const CreateVacancyForm = () => {
       console.log(response)
       dispatch(closeModalVacancyForm())
       Swal.fire(
-        'Vacante Creata',
+        'Vacante Creada',
         'La vacante ha sido creada corectamente',
         'success'
       )
@@ -51,7 +51,7 @@ export const CreateVacancyForm = () => {
           className="block text-gray-700 text-sm font-bold mb-2"
           htmlFor="title"
         >
-          Titulo para la Vacante
+           Título para la Vacante
         </label>
         <input
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -68,7 +68,7 @@ export const CreateVacancyForm = () => {
           className="block text-gray-700 text-sm font-bold mb-2"
           htmlFor="description"
         >
-          Descripcion de la Vacante
+           Descripción de la Vacante
         </label>
         <textarea
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
