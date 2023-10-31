@@ -6,7 +6,7 @@ export const mapToRowsTableApplises = (responseArr) => {
       id: apply.id,
       name: apply.name,
       email: apply.email,
-      job_vacancy: apply.job_vacancy.description,
+      job_vacancy: apply.job_vacancy.title,
     }
   })
 
