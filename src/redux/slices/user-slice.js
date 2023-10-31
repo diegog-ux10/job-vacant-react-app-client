@@ -17,14 +17,7 @@ export const userSlice = createSlice({
     },
     login: (state, { payload }) => {
       state.status = 'authenticated'
-      const { id, name, email } = payload
-
-      state.user = {
-        id,
-        name,
-        email,
-      }
-
+      state.user = payload
       state.errorMssg = undefined
       // localStorage.setItem('user', JSON.stringify(payload));
       localStorage.setItem('auth', JSON.stringify(state))
