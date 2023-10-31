@@ -1,19 +1,18 @@
 import * as React from 'react'
-import Avatar from '@mui/material/Avatar'
-import Stack from '@mui/material/Stack'
-import { deepOrange } from '@mui/material/colors'
+
 import Popover from '@mui/material/Popover'
 import { useState } from 'react'
 import { JobVacanciesView } from '../../job-vacancy'
 import { JobAppliesView } from '../../job-applies/'
 import { useNavigate } from 'react-router'
 import { logout } from '../../../redux/slices/user-slice'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import LogoutIcon from '@mui/icons-material/Logout';
 import HomeAdmin from '../../shared/pages/home-admin'
 
 /* eslint-disable react/prop-types */
 export const AdminPage = () => {
+  const { user } = useSelector(state => state.user)
   const [anchorEl, setAnchorEl] = React.useState(null)
   const [adminView, setAdminView] = useState('admin')
   const dispatch = useDispatch()
@@ -94,14 +93,14 @@ export const AdminPage = () => {
 
       <section className='w-screen'>
         <nav className="flex items-center justify-between p-4 bg-blue-500 text-white">
-          <h1 className="text-2xl font-bold">Bienvenido Administrador</h1>
+          <h1 className="text-2xl font-bold">Bienvenido {user.user.name}</h1>
           <div className="flex items-center space-x-4">
             <button
               className="p-2 bg-blue-700 hover:bg-blue-600 rounded-full"
               onClick={handleClick}
             >
               <div className="flex items-center space-x-2">
-                <div className="bg-orange-500 w-10 h-10 flex items-center justify-center rounded-full">A</div>
+                <div className="bg-orange-500 w-10 h-10 flex items-center justify-center rounded-full">{user.user.name[1].toUpperCase()}</div>
               </div>
             </button>
             <Popover
