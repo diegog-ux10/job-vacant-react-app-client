@@ -93,7 +93,7 @@ export const CreateApplyForm = () => {
           className="block text-gray-700 text-sm font-bold mb-2"
           htmlFor="phone"
         >
-          Tu Telefono
+          Tu Teléfono
         </label>
         <input
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -111,7 +111,7 @@ export const CreateApplyForm = () => {
           className="block text-gray-700 text-sm font-bold mb-2"
           htmlFor="work_experience"
         >
-          Tus Experiencias Lavorales
+          Tus experiencias laborales
         </label>
         <input
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
